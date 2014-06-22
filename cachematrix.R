@@ -36,7 +36,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Checks to see if the solution already exists - if so, return cached,
 ## if not, then solve & cache solution.
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x) { # only accepts one matrix as input, no '...'
       ## Return a matrix that is the inverse of 'x'
       inversion <- x$getMatrix()
       if (!is.null(inversion)) {
@@ -49,8 +49,7 @@ cacheSolve <- function(x, ...) {
       
       message ("Calculating inversion...")
 
-      ## magic box where we calculate inverted matrix
-      ## stored in local variable 'inversion'
+      inversion <- solve(workingMatrix) # easy when you know how...!
       
       x$setMatrix(inversion) # cache the solution for next time
       inversion # return the solution
