@@ -27,7 +27,7 @@ really a list containing a function to
 3.  set the value of the mean
 4.  get the value of the mean
 
-<!-- -->
+```r
 
     makeVector <- function(x = numeric()) {
             m <- NULL
@@ -42,6 +42,8 @@ really a list containing a function to
                  setmean = setmean,
                  getmean = getmean)
     }
+    
+```
 
 The following function calculates the mean of the special "vector"
 created with the above function. However, it first checks to see if the
@@ -50,6 +52,7 @@ cache and skips the computation. Otherwise, it calculates the mean of
 the data and sets the value of the mean in the cache via the `setmean`
 function.
 
+```r 
     cachemean <- function(x, ...) {
             m <- x$getmean()
             if(!is.null(m)) {
@@ -61,6 +64,8 @@ function.
             x$setmean(m)
             m
     }
+
+```
 
 ### Assignment: Caching the Inverse of a Matrix
 
